@@ -1,0 +1,69 @@
+{
+  "version": "1.0.0",
+  "commands": [
+    {
+      "name": "build",
+      "description": "Builds the Docker image for the backend application.",
+      "command": "docker build -t ai-query-backend .",
+      "requires": [
+        "Docker"
+      ]
+    },
+    {
+      "name": "run",
+      "description": "Runs the backend application in a Docker container.",
+      "command": "docker run -p 8000:8000 ai-query-backend",
+      "requires": [
+        "Docker"
+      ]
+    },
+    {
+      "name": "test",
+      "description": "Runs the unit and integration tests for the backend application.",
+      "command": "pytest",
+      "requires": [
+        "pytest"
+      ]
+    },
+    {
+      "name": "lint",
+      "description": "Lints the codebase for style and potential errors.",
+      "command": "pylint api/src",
+      "requires": [
+        "pylint"
+      ]
+    },
+    {
+      "name": "format",
+      "description": "Formats the codebase according to established style guidelines.",
+      "command": "black api/src",
+      "requires": [
+        "black"
+      ]
+    },
+    {
+      "name": "seed-db",
+      "description": "Seeds the database with initial data for testing and development.",
+      "command": "python api/src/scripts/seed_db.py",
+      "requires": [
+        "python"
+      ]
+    },
+    {
+      "name": "docs",
+      "description": "Generates API documentation using Swagger.",
+      "command": "uvicorn main:app --reload --host 0.0.0.0 --port 8000",
+      "requires": [
+        "uvicorn"
+      ]
+    },
+    {
+      "name": "deploy",
+      "description": "Deploys the backend application to the specified environment.",
+      "command": "docker-compose up -d",
+      "requires": [
+        "docker-compose"
+      ]
+    }
+  ]
+}
