@@ -1,0 +1,47 @@
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environment
+.venv/
+env/
+
+# Test results
+.pytest_cache/
+coverage.xml
+htmlcov/
+reports/
+
+# IDE files
+.idea/
+*.iml
+.DS_Store
+.vscode/
+
+# Logs
+logs/
+
+# Database files
+db.sqlite3
+*.db
+
+# Compiled files
+*.pyc
+*.pyo
+__pycache__/
+
+# Local configuration
+.env
+.env.example
+
+# OpenAPI specifications
+openapi.json
+
+# Dockerfiles and Compose files
+Dockerfile
+docker-compose.yml
+
+# Secrets
+secrets/
