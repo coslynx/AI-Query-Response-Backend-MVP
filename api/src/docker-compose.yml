@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  backend:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://user:password@host:port/database
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+      - FASTAPI_RELOAD=True
+    volumes:
+      - .:/app
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER=user
+      POSTGRES_PASSWORD=password
+      POSTGRES_DB=database
+    ports:
+      - "5432:5432"
